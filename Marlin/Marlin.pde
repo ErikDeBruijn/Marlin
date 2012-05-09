@@ -38,7 +38,7 @@
 #include "language.h"
 #include "pins_arduino.h"
 
-#define VERSION_STRING  "1.0.0 RC2"
+#define VERSION_STRING  "1.0.0 RC3"
 
 // look here for descriptions of gcodes: http://linuxcnc.org/handbook/gcode/g-code.html
 // http://objects.reprap.org/wiki/Mendel_User_Manual:_RepRapGCodes
@@ -706,6 +706,35 @@ void process_commands()
   {
     switch( (int)code_value() ) 
     {
+#ifdef TEST_RIG_IO
+      case 99:
+        if(digitalRead(X_MIN_PIN) == HIGH) {
+          while((digitalRead(X_MIN_PIN) == HIGH)) {}
+          beep();
+        }
+        if(digitalRead(X_MAX_PIN) == HIGH) {
+          while((digitalRead(X_MAX_PIN) == HIGH)) {}
+          beep();
+        }
+        if(digitalRead(Y_MIN_PIN) == HIGH) {
+          while((digitalRead(Y_MIN_PIN) == HIGH)) {}
+          beep();
+        }
+        if(digitalRead(Y_MAX_PIN) == HIGH) {
+          while((digitalRead(Y_MAX_PIN) == HIGH)) {}
+          beep();
+        }
+        if(digitalRead(Z_MIN_PIN) == HIGH) {
+          while((digitalRead(Z_MIN_PIN) == HIGH)) {}
+          beep();
+        }
+        if(digitalRead(Z_MAX_PIN) == HIGH) {
+          while((digitalRead(Z_MAX_PIN) == HIGH)) {}
+          beep();
+        }
+        
+      break;
+#endif
     case 17:
         LCD_MESSAGEPGM(MSG_NO_MOVE);
         enable_x(); 
@@ -715,7 +744,6 @@ void process_commands()
         enable_e1(); 
         enable_e2(); 
       break;
-
 #ifdef SDSUPPORT
     case 20: // M20 - list SD card
       SERIAL_PROTOCOLLNPGM(MSG_BEGIN_FILE_LIST);

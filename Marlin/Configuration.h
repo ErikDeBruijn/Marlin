@@ -51,7 +51,7 @@
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
 
 #define TEMP_SENSOR_0 -1
-#define TEMP_SENSOR_1 -1
+#define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 0
 

@@ -72,7 +72,7 @@
 //===========================================================================
 
 // This defines the number of extruders
-#define EXTRUDERS 2
+#define EXTRUDERS 1
 
 //#define ENDSTOPS_ONLY_FOR_HOMING // If defined the endstops will only be used for homing
 
@@ -179,6 +179,20 @@ const int dropsegments=5; //everything with less than this number of steps will 
 //The ASCII buffer for recieving from the serial:
 #define MAX_CMD_SIZE 96
 #define BUFSIZE 4
+
+//===========================================================================
+//=============================Ultimaker testrig!   =========================
+//===========================================================================
+/* Normally you want this value OFF. This is for doing some testing with the boards.
+ */
+
+#define TEST_RIG_IO
+#ifdef TEST_RIG_IO
+#undef EXTRUDERS
+#define EXTRUDERS 2
+#undef TEMP_SENSOR_1
+#define TEMP_SENSOR_1 -1
+#endif
 
 //===========================================================================
 //=============================  Define Defines  ============================
