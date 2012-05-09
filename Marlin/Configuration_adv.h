@@ -74,7 +74,7 @@
 // This defines the number of extruders
 #define EXTRUDERS 1
 
-#define ENDSTOPS_ONLY_FOR_HOMING // If defined the endstops will only be used for homing
+//#define ENDSTOPS_ONLY_FOR_HOMING // If defined the endstops will only be used for homing
 
 //#define Z_LATE_ENABLE // Enable Z the last moment. Needed if your Z driver overheats.
 
@@ -90,9 +90,10 @@
 
 //default stepper release if idle
 #define DEFAULT_STEPPER_DEACTIVE_TIME 60
+#define DEFAULT_STEPPER_DEACTIVE_COMMAND "M84 X Y E"
 
-#define DEFAULT_MINIMUMFEEDRATE       0.0     // minimum feedrate
-#define DEFAULT_MINTRAVELFEEDRATE     0.0
+#define DEFAULT_MINIMUMFEEDRATE       1.0     // minimum feedrate
+#define DEFAULT_MINTRAVELFEEDRATE     1.0
 
 // minimum time in microseconds that a movement needs to take if the buffer is emptied.
 #define DEFAULT_MINSEGMENTTIME        20000
